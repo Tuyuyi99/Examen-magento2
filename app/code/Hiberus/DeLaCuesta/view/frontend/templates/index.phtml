@@ -1,0 +1,12 @@
+
+<?php
+
+/**
+ * @var \Hiberus\DeLaCuesta\Block\Index $block
+ */
+$alumno = $block->getAlumno();
+
+?>
+
+<h2>Nombre Alumno: <?= $alumno->getFirstname() . ' ' . $alumno->getLastname(); ?></h2>
+<p>Nota: <?= $alumno->getMark(); ?></p>

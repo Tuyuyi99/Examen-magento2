@@ -289,7 +289,6 @@ return [
         'Amazon_Payment' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
-        'Hiberus_Curso' => 1,
         'Hiberus_DeLaCuesta' => 1,
         'Hiberus_TemaAdmin' => 1,
         'Hiberus_Test' => 1,

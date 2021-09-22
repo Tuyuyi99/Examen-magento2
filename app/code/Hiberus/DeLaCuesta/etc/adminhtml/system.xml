@@ -8,7 +8,7 @@
         <section id="hiberus_nombre" showInDefault="1" sortOrder="10">
             <label>Hiberus Nombre</label>
             <tab>hiberus</tab>
-            <resource>Hiberus_Curso::config</resource>
+            <resource>Hiberus_DeLaCuesta::config</resource>
             <group id="general" showInDefault="1" sortOrder="10">
                 <label>General</label>
                 <field id="nombre_general" type="text" sortOrder="10" showInDefault="1">
