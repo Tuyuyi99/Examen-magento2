@@ -34,13 +34,13 @@ interface NotasInterface extends ExtensibleDataInterface {
     /**
      * @return string
      */
-    public function getLastname();
+    public function getLastName();
 
     /**
      * @param string $lastname
      * @return $this
      */
-    public function setLastname($lastname);
+    public function setLastName($lastname);
 
     /**
      * @return decimal

@@ -43,13 +43,13 @@ class NotasRepository implements NotasRepositoryInterface
 
     /**
      * @param $examId
-     * @return NotasInterface
+     * @return mixed
      */
     public function getById($examId)
     {
         try {
             $notas = $this->notasInterfaceFactory->create();
-            $notas->setEntityId($examId);
+            $notas->setIdExam($examId);
             $this->resourceNotas->load($notas, $examId);
         } catch (\Exception $e) {
             $notas = $this->notasInterfaceFactory->create();
