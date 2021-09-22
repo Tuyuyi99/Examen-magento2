@@ -1,0 +1,28 @@
+.backgroundBorder(@border, @color) {
+    background-color: @color;
+    border: @border;
+}
+
+.fontColor(@fontColor) {
+    color: @fontColor;
+}
+
+& when (@media-common = true) {
+    .page-footer {
+        display: none;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .page-wrapper {
+        .backgroundBorder(10px, #999);
+        .fontColor(red);
+        background-color: red;
+    }
+    .page-footer {
+        display: block;
+    }
+}
+
+
+

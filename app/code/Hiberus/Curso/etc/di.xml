@@ -1,0 +1,34 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="product_plugin" type="Hiberus\Curso\Plugin\Catalog\ProductPlugin" sortOrder="10" />
+    </type>
+    <type name="Magento\Framework\Pricing\Render\Amount">
+        <plugin name="product_price_plugin" type="Hiberus\Curso\Plugin\Pricing\PricePlugin" sortOrder="10" />
+    </type>
+
+    <preference for="Hiberus\Curso\Api\Data\CursoInterface" type="Hiberus\Curso\Model\Curso"/>
+    <preference for="Hiberus\Curso\Api\CursoRepositoryInterface" type="Hiberus\Curso\Model\CursoRepository"/>
+
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Hiberus\Curso\Api\Data\CursoInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Hiberus\Curso\Api\Data\CursoInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Hiberus\Curso\Api\Data\CursoInterface::COLUMN_ID</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+
+
+    <!-- Comando de autores -->
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="comando-autor" xsi:type="object">Hiberus\Curso\Console\AuthorsCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
