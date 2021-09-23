@@ -35,18 +35,4 @@ class Index implements HttpGetActionInterface
     {
         return $this->pageFactory->create();
     }
-
-    /**
-     * @throws \Exception
-     */
-    public function insertAlumno($firstname, $lastname) {
-
-        $alumno = $this->NotasInterfaceFactory->create();
-        $alumno->setFirstname($firstname);
-        $alumno->setLastname($lastname);
-
-        $this->notasResource->save($alumno);
-        return $alumno->getIdExam();
-
-    }
 }

@@ -46,7 +46,7 @@ class Notas extends AbstractModel implements NotasInterface
     /**
      * @inheritDoc
      */
-    public function getLastname()
+    public function getLastName()
     {
         return $this->getData('lastname');
     }

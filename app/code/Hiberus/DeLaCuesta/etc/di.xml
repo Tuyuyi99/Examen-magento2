@@ -14,4 +14,10 @@
         </arguments>
     </type>
 
+<!-- Plugin de notas suspensas -->
+
+    <type name="Hiberus\DeLaCuesta\Model\Notas">
+        <plugin name="notas_plugin" type="Hiberus\DeLaCuesta\Plugin\Marks\MarksPlugin" sortOrder="10"  />
+    </type>
+
 </config>

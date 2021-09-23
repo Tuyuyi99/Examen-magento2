@@ -4,9 +4,27 @@
 /**
  * @var \Hiberus\DeLaCuesta\Block\Index $block
  */
-$alumno = $block->getAlumno();
+$alumnos = $block->getAlumno();
+$notas = $block->getAverageMarks()
+?>
+
+<h2 class="title">Alumnos</h2>
+
+<?php
+
+    foreach($alumnos as $alumno) {
 
 ?>
 
-<h2>Nombre Alumno: <?= $alumno->getFirstname() . ' ' . $alumno->getLastname(); ?></h2>
-<p>Nota: <?= $alumno->getMark(); ?></p>
+<ul>
+    <li>Nombre:<?= $alumno->getFirstName(); ?></li>
+     <li>Apellido: <?= $alumno->getLastName(); ?></li>
+    <li>Nota:<?= $alumno->getMark(); ?></li>
+</ul>
+
+<?php } ?>
+<p> Media de notas: <?=$notas?> </p>
+
+<p> Total de alumnos: <?= (count($alumnos)) ?> </p>
+
+

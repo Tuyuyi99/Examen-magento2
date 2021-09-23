@@ -1,26 +1,21 @@
-.backgroundBorder(@border, @color) {
-    background-color: @color;
-    border: @border;
-}
-
-.fontColor(@fontColor) {
-    color: @fontColor;
-}
-
+@margin-left-primary: 20px;
 & when (@media-common = true) {
-    .page-footer {
-        display: none;
+    .page-main {
+        .title{
+            color:green;
+        }
+    }
+
+    ul:nth-child(even){
+        .notas-mixin(@margin-left-primary);
     }
 }
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-    .page-wrapper {
-        .backgroundBorder(10px, #999);
-        .fontColor(red);
-        background-color: red;
-    }
-    .page-footer {
-        display: block;
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-main {
+        .title{
+            color:red;
+        }
     }
 }
 

@@ -12,18 +12,25 @@ use \Magento\Framework\Registry;
 class Index extends \Magento\Framework\View\Element\Template
 {
 
+
     protected Registry $registry;
+
     protected Notas $notas;
+
     protected NotasRepositoryInterface $notasRepository;
+
     protected NotasInterfaceFactory $notasInterfaceFactory;
+
     protected ResourceNotas $notasResource;
 
-    public function __construct(Context $context, Registry $registry,
-                                Notas $notas,
+
+    public function __construct(Context                  $context,
+                                Registry                 $registry,
+                                Notas                    $notas,
                                 NotasRepositoryInterface $notasRepository,
-                                NotasInterfaceFactory $notasInterfaceFactory,
-                                ResourceNotas $notasResource,
-        array $data = []
+                                NotasInterfaceFactory    $notasInterfaceFactory,
+                                ResourceNotas            $notasResource,
+                                array                    $data = []
     ) {
         $this->registry = $registry;
         $this->notas = $notas;
@@ -35,21 +42,22 @@ class Index extends \Magento\Framework\View\Element\Template
 
     public function getAlumno() {
 
-        $crearAlumno = $this->insertAlumno('pablo', 'de la cuesta');
+        $crearAlumno = $this->notasInterfaceFactory->create();
 
-        return $this->notasRepository->getById($crearAlumno);
-
-    }
-
-    public function insertAlumno($firstname, $lastname) {
-
-        $alumno = $this->notasInterfaceFactory->create();
-        $alumno->setFirstName($firstname);
-        $alumno->setLastname($lastname);
-
-        $this->notasResource->save($alumno);
-        return $alumno->getIdExam();
+        return $crearAlumno->getCollection();
 
     }
+
+    public function getAverageMarks(){
+        $resultPage = $this->notasInterfaceFactory->create();
+        $total = $resultPage->getCollection();
+        $notas = [];
+        foreach ($total as $item){
+            $notas[] = $item->getMark();
+        }
+        $mediaNotas = array_sum($notas)/count($notas);
+        return $mediaNotas;
+    }
+
 
 }

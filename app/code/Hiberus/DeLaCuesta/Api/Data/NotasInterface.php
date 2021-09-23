@@ -43,12 +43,12 @@ interface NotasInterface extends ExtensibleDataInterface {
     public function setLastName($lastname);
 
     /**
-     * @return decimal
+     * @return float
      */
     public function getMark();
 
     /**
-     * @param decimal $mark
+     * @param float $mark
      * @return $this
      */
     public function setMark($mark);
