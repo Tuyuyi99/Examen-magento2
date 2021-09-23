@@ -32,7 +32,7 @@ class Index extends \Magento\Framework\View\Element\Template
                                 NotasRepositoryInterface $notasRepository,
                                 NotasInterfaceFactory    $notasInterfaceFactory,
                                 ResourceNotas            $notasResource,
-                                ScopeConfigInterface     $scopeConfig,
+                                //ScopeConfigInterface     $scopeConfig,
                                 array                    $data = []
     ) {
         $this->registry = $registry;
@@ -40,7 +40,7 @@ class Index extends \Magento\Framework\View\Element\Template
         $this->notasRepository = $notasRepository;
         $this->notasInterfaceFactory = $notasInterfaceFactory;
         $this->notasResource = $notasResource;
-        $this->scopeConfig = $scopeConfig;
+        //$this->scopeConfig = $scopeConfig;
         parent::__construct($context, $data);
     }
 
