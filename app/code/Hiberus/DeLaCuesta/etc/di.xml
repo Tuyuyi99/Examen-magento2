@@ -20,4 +20,14 @@
         <plugin name="notas_plugin" type="Hiberus\DeLaCuesta\Plugin\Marks\MarksPlugin" sortOrder="10"  />
     </type>
 
+    <!-- Comando de notas -->
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="comando_delacuesta" xsi:type="object">Hiberus\DeLaCuesta\Console\NotasCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
 </config>

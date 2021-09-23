@@ -11,15 +11,21 @@ $notas = $block->getAverageMarks()
 <h2 class="title">Alumnos</h2>
 
 <?php
-
     foreach($alumnos as $alumno) {
+
+        if($alumno->getMark() > 4.9){
+
+            $classEvaluation = "approved";
+        }else{
+            $classEvaluation = "suspensed";
+        }
 
 ?>
 
 <ul>
     <li>Nombre:<?= $alumno->getFirstName(); ?></li>
      <li>Apellido: <?= $alumno->getLastName(); ?></li>
-    <li>Nota:<?= $alumno->getMark(); ?></li>
+    <li class="<?=$classEvaluation?>">Nota:<?= $alumno->getMark(); ?></li>
 </ul>
 
 <?php } ?>

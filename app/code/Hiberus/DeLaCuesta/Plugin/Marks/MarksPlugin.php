@@ -12,7 +12,6 @@ class MarksPlugin{
             $result = $subject->getData('mark');
         }
         return $result;
-
     }
 
 }
