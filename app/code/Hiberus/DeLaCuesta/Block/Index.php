@@ -88,4 +88,15 @@ class Index extends \Magento\Framework\View\Element\Template
         }
         return $maxMarks;
     }
+
+    public function getMaxMark() {
+        $alumnos = $this->notasInterfaceFactory->create()->getCollection()->getData();
+        $maxMark = 0;
+        foreach ($alumnos as $alumno) {
+            if ($alumno['mark'] > $maxMark) {
+                $maxMark = $alumno['mark'];
+            }
+        }
+        return $maxMark;
+    }
 }

@@ -1,7 +1,8 @@
 var config = {
     map: {
         '*': {
-            btndisplay: 'Hiberus_DeLaCuesta/js/btndisplay',
+            btndisplay: 'Hiberus_DeLaCuesta/js/btnDisplay',
+            alertNotaAlta: 'Hiberus_DeLaCuesta/js/alertNotaAlta',
         }
     }
 };

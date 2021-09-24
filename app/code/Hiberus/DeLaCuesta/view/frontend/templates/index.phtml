@@ -12,6 +12,7 @@ $elementos = $block->getElementos();
 $maxMarks = $block->getMaxMarks();
 ?>
 <button id="btnDisplay">Mostrar/ocultar lista de alumnos</button>
+<button id="notaMasAlta">Ver nota mas alta</button>
 <h2 class="title">Alumnos</h2>
 <div id="alumnos">
     <?php
@@ -45,8 +46,16 @@ Notas mas altas:
 <p> Total de alumnos: <?= (count($alumnos)) ?> </p>
 
 <script>
+    var maxNote = <?= $block->getMaxMark() ?>
+</script>
+
+<script>
     require(['jquery', 'btndisplay'], function($, btndisplay) {
         btndisplay('#btnDisplay','#alumnos');
+    });
+
+    require(['jquery', 'alertNotaAlta'], function($, alertNotaAlta) {
+        alertNotaAlta('#notaMasAlta');
     });
 </script>
 
