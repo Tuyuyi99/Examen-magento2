@@ -14,7 +14,7 @@
 
                 <field id="elementos" type="text" sortOrder="10" showInDefault="1">
                     <label>Elementos</label>
-                    <validate>validate-number</validate>
+                    <validate>integer</validate>
                 </field>
 
                 <field id="aprobados" type="text" sortOrder="10" showInDefault="1">

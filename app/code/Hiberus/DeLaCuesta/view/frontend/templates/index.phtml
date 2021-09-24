@@ -5,15 +5,20 @@
  * @var \Hiberus\DeLaCuesta\Block\Index $block
  */
 $alumnos = $block->getAlumno();
-$notas = $block->getAverageMarks()
+$notas = $block->getAverageMarks();
+$notaMinima = $block->getNota();
+$i = 0;
+$elementos = $block->getElementos();
+$maxMarks = $block->getMaxMarks();
 ?>
 
 <h2 class="title">Alumnos</h2>
 
 <?php
     foreach($alumnos as $alumno) {
+        if ($i++ == $elementos) break;
 
-        if($alumno->getMark() > 4.9){
+        if($alumno->getMark() > $notaMinima){
 
             $classEvaluation = "approved";
         }else{
@@ -28,6 +33,11 @@ $notas = $block->getAverageMarks()
     <li class="<?=$classEvaluation?>">Nota:<?= $alumno->getMark(); ?></li>
 </ul>
 
+<?php } ?>
+
+Notas mas altas:
+<?php foreach($maxMarks as $mark) { ?>
+    <p><?= $mark ?></p>
 <?php } ?>
 <p> Media de notas: <?=$notas?> </p>
 

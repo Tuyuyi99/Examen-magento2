@@ -32,7 +32,7 @@ class Index extends \Magento\Framework\View\Element\Template
                                 NotasRepositoryInterface $notasRepository,
                                 NotasInterfaceFactory    $notasInterfaceFactory,
                                 ResourceNotas            $notasResource,
-                                //ScopeConfigInterface     $scopeConfig,
+                                ScopeConfigInterface     $scopeConfig,
                                 array                    $data = []
     ) {
         $this->registry = $registry;
@@ -40,7 +40,7 @@ class Index extends \Magento\Framework\View\Element\Template
         $this->notasRepository = $notasRepository;
         $this->notasInterfaceFactory = $notasInterfaceFactory;
         $this->notasResource = $notasResource;
-        //$this->scopeConfig = $scopeConfig;
+        $this->scopeConfig = $scopeConfig;
         parent::__construct($context, $data);
     }
 
@@ -50,10 +50,10 @@ class Index extends \Magento\Framework\View\Element\Template
 
     }
 
-//    public function getElementos() {
-//        $crearAlumno = $this->scopeConfig->getValue( 'hiberus_elementos/general/elementos', ScopeInterface::SCOPE_STORE);
-//        return $crearAlumno->getCollection();
-//    }
+    public function getElementos() {
+        $elementos = $this->scopeConfig->getValue( 'hiberus_elementos/general/elementos', ScopeInterface::SCOPE_STORE);
+        return $elementos;
+    }
 
     public function getAverageMarks(){
         $resultPage = $this->notasInterfaceFactory->create();
@@ -66,10 +66,28 @@ class Index extends \Magento\Framework\View\Element\Template
         return $mediaNotas;
     }
 
-//    public function getNota() {
-//        $crearAlumno = $this->scopeConfig->getValue( 'hiberus_elementos/general/aprobados', ScopeInterface::SCOPE_STORE);
-//        return $crearAlumno->getCollection();
-//    }
+    public function getNota() {
+        $nota = $this->scopeConfig->getValue( 'hiberus_elementos/general/aprobados', ScopeInterface::SCOPE_STORE);
+        return $nota;
+    }
+
+    public function getMaxMarks(){
+        $total = $this->getAlumno();
+        $marks = [];
+        $maxMarks = [];
+        foreach ($total as $item){
+            $marks[] = $item->getMark();
+        }
+        $max = max($marks);
+        foreach ($marks as $mark){
+            $nota = $mark;
+            if($nota <= $max && count($maxMarks) < 3){
+                $notaMax = $nota;
+                $maxMarks[] = $notaMax;
+            }
+        }
+        return $maxMarks;
+    }
 
 
 }
