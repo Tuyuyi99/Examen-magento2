@@ -11,29 +11,30 @@ $i = 0;
 $elementos = $block->getElementos();
 $maxMarks = $block->getMaxMarks();
 ?>
-
+<button id="btnDisplay">Mostrar/ocultar lista de alumnos</button>
 <h2 class="title">Alumnos</h2>
+<div id="alumnos">
+    <?php
+        foreach($alumnos as $alumno) {
+            if ($i++ == $elementos) break;
 
-<?php
-    foreach($alumnos as $alumno) {
-        if ($i++ == $elementos) break;
+            if($alumno->getMark() > $notaMinima){
 
-        if($alumno->getMark() > $notaMinima){
+                $classEvaluation = "approved";
+            }else{
+                $classEvaluation = "suspensed";
+            }
 
-            $classEvaluation = "approved";
-        }else{
-            $classEvaluation = "suspensed";
-        }
+    ?>
 
-?>
+    <ul>
+        <li>Nombre:<?= $alumno->getFirstName(); ?></li>
+         <li>Apellido: <?= $alumno->getLastName(); ?></li>
+        <li class="<?=$classEvaluation?>">Nota:<?= $alumno->getMark(); ?></li>
+    </ul>
 
-<ul>
-    <li>Nombre:<?= $alumno->getFirstName(); ?></li>
-     <li>Apellido: <?= $alumno->getLastName(); ?></li>
-    <li class="<?=$classEvaluation?>">Nota:<?= $alumno->getMark(); ?></li>
-</ul>
-
-<?php } ?>
+    <?php } ?>
+</div>
 
 Notas mas altas:
 <?php foreach($maxMarks as $mark) { ?>
@@ -42,5 +43,11 @@ Notas mas altas:
 <p> Media de notas: <?=$notas?> </p>
 
 <p> Total de alumnos: <?= (count($alumnos)) ?> </p>
+
+<script>
+    require(['jquery', 'btndisplay'], function($, btndisplay) {
+        btndisplay('#btnDisplay','#alumnos');
+    });
+</script>
 
 
