@@ -68,6 +68,9 @@ class Index extends \Magento\Framework\View\Element\Template
 
     public function getNota() {
         $nota = $this->scopeConfig->getValue( 'hiberus_elementos/general/aprobados', ScopeInterface::SCOPE_STORE);
+        if(is_null($nota)){
+            $nota = 5;
+        }
         return $nota;
     }
 
